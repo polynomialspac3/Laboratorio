@@ -13,7 +13,7 @@ class CaricatoreFile : public Subject, public QPushButton  {
 private:
     std::list<Observer*> observers;
     std::list<File*> files;
-    int bitCar = 0;
+    int caricato = 0;
 
 public:
     CaricatoreFile();
@@ -24,7 +24,8 @@ public:
     void carica(); // cambio di stato che l'interfaccia del Subject non ha
     void addFile(File* f);
 
-
+    //metodi per il testing
+    int getNumeroObserver() const;
 
 };
 

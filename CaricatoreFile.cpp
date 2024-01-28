@@ -37,8 +37,8 @@ void CaricatoreFile::carica() {
     int i =0 ;
     for (auto f : files){
         i++;
-        bitCar += f->getSize();
-        int percentuale = (bitCar * 100) / totSize;
+        caricato += f->getSize();
+        int percentuale = (caricato * 100) / totSize;
         notifyAll(percentuale, i);
         usleep(90000);
     }
