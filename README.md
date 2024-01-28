@@ -1,4 +1,4 @@
-# Laboratorio_di_Programmazione_2023_24
+# Laboratorio di Programmazione 2023-24
  
 #### Classe che carica file di risorse e aggiorna una progress bar (usare design pattern Observer). 
 #### Visualizzazione con QT
@@ -19,8 +19,8 @@
 i test sono implementati con Google Test:
 
 - **Test percentuale (percentuale):**
-  - Verifica che il metodo **`carica`** del Subject `CaricatoreFile` notifichi correttamente a `Barra` con la percentuale specificata.
-  - Verifica che update di `Barra` aggironi correttamente il valore della percentuale
+  - Verifica che il metodo **`carica`** di `CaricatoreFile` notifichi correttamente a `Barra` la percentuale specificata.
+  - Verifica che il metodo **`update`** di `Barra` aggironi correttamente il valore della percentuale
 
 - **Test rimuovi observer (removeObs):**
   - Verifica che il metodo **`removeObserver`** del CaricatoreFile rimuova correttamente l'observer specificato
