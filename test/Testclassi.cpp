@@ -20,7 +20,39 @@ public:
 
 };
 
+class ObserverTest : public Observer{
+public:
+    void update(int percentuale, int numFile){
+        this->percentuale = percentuale;
+        this->numF = numFile;
+    }
 
+    void attach(){}
+
+    void detach(){}
+
+    int getPerc(){
+        return percentuale;
+    }
+
+    int getNum(){
+        return numF;
+    }
+
+private:
+    int percentuale;
+    int numF;
+
+};
+
+TEST(ObserverTest, aggiorna){
+    ObserverTest ot;
+    ot.update(22, 5);
+
+    ASSERT_EQ(22, ot.getPerc());
+    ASSERT_EQ(5, ot.getNum());
+
+}
 
 TEST_F(pulsantetest, percentuale){
     p->notifyAll(42, 1);
@@ -36,14 +68,7 @@ TEST_F(pulsantetest, removeObs) {
     cf->removeObserver(&b3);
 
     ASSERT_EQ(4, cf->getNumeroObserver());
-
 }
-
-TEST_F(pulsantetest, aggiungiObs){
-
-    ASSERT_EQ(5, cf->getNumeroObserver());
-
-};
 
 TEST_F(pulsantetest, detachObs){
     b4.detach();
