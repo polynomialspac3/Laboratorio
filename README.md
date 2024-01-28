@@ -5,13 +5,13 @@
 
 ## Struttura del progetto
 
-- **pulsante.h/cpp**: Implementazione della classe `pulsante` che eredita da `subject` e `QPushButton`.
-- **barra.h/cpp**: Implementazione della classe `barra` che eredita da `observer` e `QProgressBar`.
-- **observer.h**: Dichiarazione della classe `observer`.
-- **subject.h**: Dichiarazione della classe `subject`.
+- **CaricatoreFile.h/cpp**: Classe che eredita da `Subject` e `QPushButton`.
+- **Barra.h/cpp**: classe `barra` che eredita da `Observer` e `QProgressBar` e  `QLabel` .
+- **File.h/cpp**: classe `File` simula una risorsa che verrà "caricata" da `CaricatoreFile`.
+- **Observer.h/cpp**: Dichiarazione della classe `Observer`.
+- **Subject.h/cpp**: Dichiarazione della classe `Subject`.
 
-- **main.cpp**: Crea una finestra di tipo `QMainWindow` , tre oggetti di tipo `observer` : `b`, `b1` e `b2`, e due oggetti di tipo `subject` : `s1` e `s2`. Ad `s1`, vengono associati due observer: `b` e `b1`. Ogni volta che il pulsante relativo a `s1` viene premuto, viene attivato il metodo `s1->carica(int)` all'interno della lambda function di Qt. Questo metodo incrementa un contatore, il cui valore è prelevato dalla lambda function stessa e modificato internamente. Il valore del contatore viene quindi passato attraverso `s1->carica(++contatore)`, che attiva il metodo `NotifyAll` per aggiornare tutti gli observer collegati. Una volta raggiunto il 100% di caricamento, il pulsante `s1` viene disabilitato.
-Ad `s2`, viene invece associato l'observer `b2`. Il processo di aggiornamento è uguale a quello di `s1`, ma il valore passato attraverso `s2->carica(int)` è calcolato diversamente, utilizzando una variabile denominata `fastvalue` per accelerare il raggiungimento del 100%. Quando `fastvalue` supera il valore 100, il pulsante `s2` viene disabilitato.
+- **main.cpp**: Crea una finestra di tipo `QMainWindow` 
 
 
 ## Test
@@ -19,15 +19,15 @@ Ad `s2`, viene invece associato l'observer `b2`. Il processo di aggiornamento è
 i test sono implementati con Google Test:
 
 - **Test percentuale (percentuale):**
-  - Verifica che il metodo **`carica`** del subject `pulsante` notifichi correttamente l'observer `barra` con la percentuale specificata.
+  - Verifica che il metodo **`carica`** del Subject `CaricatoreFile` notifichi correttamente a `Barra` con la percentuale specificata.
+  - Verifica che update di `Barra` aggironi correttamente il valore della percentuale
 
-- **Test notifica osservatori (notifica):**
-  - Verifica che il metodo **`notifyAll`** del subject `pulsante` notifichi correttamente l'observer `barra` con la percentuale specificata.
+- **Test rimuovi observer (removeObs):**
+  - Verifica che il metodo **`removeObserver`** del CaricatoreFile rimuova correttamente l'observer specificato
 
-- **Test aggiungi osservatore (aggiungiobs):**
-  - Verifica che il metodo **`addObserver`** del soggetto `pulsante` aggiunga correttamente l'observer `barra`.
+- **Test rimuovi observer (detachObs):**
+  - Verifica che il metodo **`detach`** dell'observer `Barra` rimuova correttamente se stesso dalla lista degli observer del subject.
 
-- **Test update percentuale (updatePercentuale):**
-  - Verifica che l'observer `barra` venga aggiornato correttamente con la percentuale specificata.
+
 
 
