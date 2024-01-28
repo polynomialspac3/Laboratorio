@@ -19,7 +19,7 @@
 i test sono implementati con Google Test:
 
 - **Test percentuale (percentuale):**
-  - Verifica che il metodo **`carica`** del Subject `CaricatoreFile` notifichi correttamente a `Barra` con la percentuale specificata.
+  - Verifica che il metodo **`carica`** di `CaricatoreFile` notifichi correttamente a `Barra` con la percentuale specificata.
   - Verifica che update di `Barra` aggironi correttamente il valore della percentuale
 
 - **Test rimuovi observer (removeObs):**
