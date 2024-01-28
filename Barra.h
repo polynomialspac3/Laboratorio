@@ -2,16 +2,18 @@
 #define BARRA_H
 
 #include <QProgressBar>
+#include <QLabel>
+#include <QMainWindow>
 #include "Observer.h"
 #include "CaricatoreFile.h"
 
 
-class Barra : public Observer, public QProgressBar {
+class Barra : public Observer, public QProgressBar, public QLabel {
 public:
-    Barra(CaricatoreFile *s);
+    Barra(CaricatoreFile *s, QMainWindow &finestra);
 
     ~Barra();
-    virtual void update(int percentuale) override;
+    virtual void update(int percentuale, int numFile) override;
     virtual void attach() override;
     virtual void detach() override;
 

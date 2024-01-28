@@ -23,22 +23,31 @@ void CaricatoreFile::removeObserver(Observer* o) {
     observers.remove(o);
 }
 
-void CaricatoreFile::notifyAll(int percentuale) {
+void CaricatoreFile::notifyAll(int percentuale, int numFile) {
     for (auto o : observers) {
-        o->update(percentuale);
+        o->update(percentuale, numFile);
     }
 }
 
 void CaricatoreFile::carica() {
-    for (int i = 0; i<101; i++){
-        usleep(100000);
-        notifyAll(i);
+    int totSize = 0;
+    for (auto f : files) {
+        totSize += f->getSize();
+    }
+    int i =0 ;
+    for (auto f : files){
+        i++;
+        bitCar += f->getSize();
+        int percentuale = (bitCar * 100) / totSize;
+        notifyAll(percentuale, i);
+        usleep(90000);
+    }
 
-    };
-
-    //qDebug() << "Button Clicked!";
 }
 
+void CaricatoreFile::addFile(File* f) {
+    files.push_back(f);
+};
 
 
 

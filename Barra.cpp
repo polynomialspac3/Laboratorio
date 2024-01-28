@@ -2,13 +2,14 @@
 #include <iostream>
 
 
-Barra::Barra(CaricatoreFile *s): QProgressBar() {
-    setGeometry(80, 120, 450, 40);
-    setRange(0, 100);
-    setValue(0);
+Barra::Barra(CaricatoreFile *s, QMainWindow &finestra): QProgressBar(), QLabel()  {
+    QProgressBar::setGeometry(80, 120, 450, 40);
+    QProgressBar::setRange(0, 100);
+    QProgressBar::setValue(0);
+    QProgressBar::setParent(&finestra);
     subject = s;
     attach();
-    setStyleSheet(
+    QProgressBar::setStyleSheet(
             "QProgressBar::chunk {"
             "background-color: lightgreen;"
             "}"
@@ -22,6 +23,16 @@ Barra::Barra(CaricatoreFile *s): QProgressBar() {
             "padding: 1px; "
             "}"
     );
+    QLabel::setParent(&finestra);
+    QLabel::setGeometry(200, 70, 400, 40);
+    QLabel::setText("sto caricando il  0" "  -esimo file");
+    QLabel::setStyleSheet(
+            "QLabel{"
+            "text-align: center;"
+            "font-size: 15px; "
+            "}"
+
+            );
 
 }
 
@@ -41,9 +52,10 @@ void Barra::detach() {
 }
 
 
-void Barra::update(int percentuale) {
+void Barra::update(int percentuale, int numFile) {
     this->percentuale = percentuale;
-    setValue(percentuale);
+    QProgressBar::setValue(percentuale);
+    QLabel::setText("sto caricando il  " + QString::number(numFile) + " -esimo file");
 }
 
 int Barra::getPerc() {

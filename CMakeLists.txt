@@ -14,6 +14,8 @@ add_executable(Laboratorio main.cpp
         CaricatoreFile.cpp
         CaricatoreFile.h
         Subject.h
+        File.cpp
+        File.h
 )
 
 
@@ -27,6 +29,8 @@ add_library(core Laboratorio main.cpp
         CaricatoreFile.h
         Subject.h
         Observer.cpp
+        File.cpp
+        File.h
 )
 
 target_link_libraries(core Qt5::Widgets)
