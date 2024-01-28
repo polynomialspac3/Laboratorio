@@ -1,4 +1,4 @@
-# Laboratorio_di_Programmazione_2023_24
+# Laboratorio di Programmazione 2023-24
  
 #### Classe che carica file di risorse e aggiorna una progress bar (usare design pattern Observer). 
 #### Visualizzazione con QT
