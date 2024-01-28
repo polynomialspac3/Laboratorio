@@ -17,7 +17,8 @@ public:
     virtual void attach() override;
     virtual void detach() override;
 
-    virtual int getPerc();
+    //metodi per il testing
+    int getPerc() const;
 
 private:
     int percentuale;

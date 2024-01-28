@@ -50,5 +50,7 @@ void CaricatoreFile::addFile(File* f) {
 };
 
 
-
+int CaricatoreFile::getNumeroObserver() const {
+    return observers.size();
+}
 

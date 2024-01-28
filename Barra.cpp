@@ -58,7 +58,7 @@ void Barra::update(int percentuale, int numFile) {
     QLabel::setText("sto caricando il  " + QString::number(numFile) + " -esimo file");
 }
 
-int Barra::getPerc() {
+int Barra::getPerc() const {
     return percentuale;
 }
 

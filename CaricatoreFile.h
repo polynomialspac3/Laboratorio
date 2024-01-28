@@ -21,7 +21,7 @@ public:
     void addObserver(Observer* o) override;
     void removeObserver(Observer* o) override;
     void notifyAll(int percentuale, int numFile) override;
-    void carica(); // cambio di stato che l'interfaccia del Subject non ha
+    void carica();
     void addFile(File* f);
 
     //metodi per il testing
