@@ -18,7 +18,10 @@
 
 i test sono implementati con Google Test:
 
-- **Test percentuale (percentuale):**
+- **Test update di Observer(aggiorna):**
+  - Crea una classe ObserverTest che implementa i metodi di Observer e verifica che il metodo update aggiorni i valori della percentuale.
+
+- **Test percentuale di Barra(percentuale):**
   - Verifica che il metodo **`carica`** di `CaricatoreFile` notifichi correttamente a `Barra` la percentuale specificata.
   - Verifica che il metodo **`update`** di `Barra` aggironi correttamente il valore della percentuale
 
